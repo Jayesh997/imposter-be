@@ -7,10 +7,11 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: 'https://imposter-fe.vercel.app',
+        origin: 'wss://imposter-fe.vercel.app',
         methods: ['GET', 'POST']
     },
-    transports: ['websocket', 'polling']
+    transports: ['websocket', 'polling'],
+    withCredentials: true
 });
 
 // Use CORS middleware to allow requests from any origin
