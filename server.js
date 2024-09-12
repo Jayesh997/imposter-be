@@ -9,7 +9,8 @@ const io = new Server(server, {
     cors: {
         origin: 'https://imposter-fe.vercel.app',
         methods: ['GET', 'POST']
-    }
+    },
+    transports: ['websocket', 'polling']
 });
 
 // Use CORS middleware to allow requests from any origin

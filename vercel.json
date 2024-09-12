@@ -12,8 +12,15 @@
     ],
     "routes": [
       {
-        "src": "/(.*)",
+        "src": "/socket.io/(.*)",
         "dest": "/server.js"
+      },
+      {
+        "src": "/(.*)",
+        "dest": "/public/$1",
+        "headers": {
+          "cache-control": "s-maxage=0"
+        }
       }
     ]
   }
