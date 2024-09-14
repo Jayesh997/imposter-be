@@ -7,7 +7,7 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: 'https://imposter-fe.vercel.app',  // Use HTTPS URL for CORS origin
+        origin: process.env.FRONTEND_URL,  // Use HTTPS URL for CORS origin
         methods: ['GET', 'POST'],
         credentials: true // Add credentials if needed
     },
@@ -259,7 +259,10 @@ function selectNewImposter(gameId) {
     }
 }
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
+
+module.exports = app
